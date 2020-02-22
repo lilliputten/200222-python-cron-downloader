@@ -1,0 +1,41 @@
+.DS_Store
+.idea
+\!UNUSED*
+\!ARC*
+
+# Log files
+
+log*.txt
+
+# Swap/backup
+
+*.sw?
+*.bak*
+*_
+*~
+
+# Include special jest files/folders
+!__mocks__
+!__snapshots__
+!__tests__
+
+# dependencies
+/node_modules
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

@@ -1,0 +1,65 @@
+<!--
+ vim: ft=markdown:
+-->
+
+# flask-sample-site-1903
+
+## Project docs
+
+- `README.md`
+- `TODO.md`
+- `CHANGELOG.md`
+
+## Config files
+
+- `package.json`
+- `requirements.txt`
+- `.lvimrc`
+- `.editorconfig`
+- `jest.config.js`
+- `.flake8`
+- `.eslintrc.yml`
+- `.eslintignore`
+- '.stylelintrc.yml'
+
+## Module extensions
+
+- `*.py,*.wsgi,*.js,*.jsx,*.ts,*.tsx,*.css,*.pcss,*.styl,*.md,*.json,*.yml,*.yaml,*.sh`
+
+```shell
+pip install virtualenv virtualenvwrapper-win
+# Machine global:
+mkvirtualenv flask-sample-site-1903
+workon flask-sample-site-1903
+# Project local:
+virtualenv .venv
+.venv/bin/activate
+call .venv/Scripts/activate
+# Install all requirements:
+pip install -r requirements.txt
+pip install flask
+pip install Django==1.11.18
+pip freeze django
+pip freeze > requirements.txt
+django-admin --version
+python manage.py startapp testapp
+```
+
+Set variables:
+```shell
+WORKON_HOME=C:/Home/User/Envs
+PYTHON_PATH=...
+PATH=%PATH%;%PYTHON_PATH%;%PYTHON_PATH%/Scripts
+VIRTUAL_ENV=.venv
+```
+
+NOTE: vim and python must be both 32 or 64 bit (32 bit on 2019.02.04 -- use 32bit Python27 -- python-2.7.15-32bit.msi)
+
+## Python in vim
+
+- [VIM and Python – A Match Made in Heaven – Real Python](https://realpython.com/vim-and-python-a-match-made-in-heaven/#vim-extensions)
+
+### Flask docs:
+
+- [Быстрый старт — Документация Flask (русский перевод) 0.10.1](https://flask-russian-docs.readthedocs.io/ru/latest/quickstart.html)
+
