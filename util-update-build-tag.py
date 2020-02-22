@@ -5,22 +5,28 @@
 
 import json
 import datetime
+import os
+from os import path
 
-buildTagFile = 'build-tag.txt'
+
+rootPath = os.getcwd()
+
+buildTagFile = path.join(rootPath, 'build-tag.txt')
+packageFile = path.join(rootPath, 'package.json')
 
 dateTagFormat = '%y%m%d-%H%M'
-shortDateFormat = '%Y.%m.%d-%H:%M'
-detailedDateFormat = shortDateFormat + ':%S.%f'
+#  shortDateFormat = '%Y.%m.%d-%H:%M'
+#  detailedDateFormat = shortDateFormat + ':%S.%f'
 
 now = datetime.datetime.now()
 dateTag = now.strftime(dateTagFormat)
 
-pkgConfig = json.load(open('package.json'))
+pkgConfig = json.load(open(packageFile))
 version = pkgConfig['version']
 
 buildTag = 'v.' + version + '-' + dateTag
 
-print buildTag
+print 'Updated build tag:', buildTag
 
 with open(buildTagFile, 'w') as f:
     f.write(buildTag)
