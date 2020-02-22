@@ -1,14 +1,15 @@
+# Unused, temp etc
 .DS_Store
 .idea
 \!UNUSED*
 \!ARC*
 
 # Log files
-
 log*.txt
 
 # Swap/backup
-
+~*
+zia*
 *.sw?
 *.bak*
 *_
