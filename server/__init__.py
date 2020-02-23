@@ -6,5 +6,15 @@
 #  import os
 #  rootPath = os.getcwd()
 
-from main import foo
+from config import config
+from logger import DEBUG
+
+from main import foo  # noqa
+
+__all__ = [
+    'config',
+    'DEBUG',
+]
+
+#  print 'config: ', config
 #  foo()

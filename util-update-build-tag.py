@@ -11,8 +11,8 @@ from os import path
 
 rootPath = os.getcwd()
 
-buildTagFile = path.join(rootPath, 'build-tag.txt')
-packageFile = path.join(rootPath, 'package.json')
+buildTagFilename = path.join(rootPath, 'build-tag.txt')
+packageFilename = path.join(rootPath, 'package.json')
 
 dateTagFormat = '%y%m%d-%H%M'
 #  shortDateFormat = '%Y.%m.%d-%H:%M'
@@ -21,12 +21,16 @@ dateTagFormat = '%y%m%d-%H%M'
 now = datetime.datetime.now()
 dateTag = now.strftime(dateTagFormat)
 
-pkgConfig = json.load(open(packageFile))
+pkgConfigFile = open(packageFilename)
+pkgConfig = json.load(pkgConfigFile)
+pkgConfigFile.close()
+
 version = pkgConfig['version']
 
 buildTag = 'v.' + version + '-' + dateTag
 
 print 'Updated build tag:', buildTag
 
-with open(buildTagFile, 'w') as f:
-    f.write(buildTag)
+with open(buildTagFilename, 'w') as file:
+    file.write(buildTag)
+    file.close()
