@@ -26,6 +26,7 @@ buildTagFile.close()
 config = {
     'version': version,
     'buildTag': buildTag,
+    'rootPath': rootPath,
     #  'test': 'basic',
     #  'testDict': {
     #      'var': 'var content',
