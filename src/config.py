@@ -41,6 +41,7 @@ config = {  # Default config
     'dateTagFormat': '%y%m%d-%H%M',
     'shortDateFormat': '%Y.%m.%d-%H:%M',
     'detailedDateFormat': '%Y.%m.%d-%H:%M:%S.%f',
+    'collectorFileName': 'collector.txt',  # Add to gitignore
 }
 
 # Extend config from file (config.yml) in project root
