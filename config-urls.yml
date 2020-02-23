@@ -1,0 +1,7 @@
+# @module config-urls.yml
+# @desc Urls to crawl for media content
+# @since 2020.02.23, 18:41
+# @changed 2020.02.23, 18:41
+
+- https://echo.msk.ru/programs/radiodetaly/
+- https://echo.msk.ru/programs/keys/

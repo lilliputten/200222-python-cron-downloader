@@ -7,10 +7,13 @@
 # Log files
 log*.txt
 
+# Sessions
+*.session
+
 # Swap/backup
 ~*
 zia*
-*.sw?
+*.sw[po]
 *.bak*
 *_
 *~

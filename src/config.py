@@ -2,6 +2,7 @@
 # @module server
 # @since 2020.02.23, 02:18
 # @changed 2020.02.23, 01:58
+# See https://docs.python.org/3/library/configparser.html -- ???
 
 import os
 from os import path
@@ -13,25 +14,28 @@ yamlConfigFilename = path.join(rootPath, 'config.yml')
 
 buildTagFilename = path.join(rootPath, 'build-tag.txt')
 packageFilename = path.join(rootPath, 'package.json')
+#  print 'config: packageFilename', packageFilename  # DEBUG
 
-pkgConfigFile = open(packageFilename)
-pkgConfig = json.load(pkgConfigFile)
-version = pkgConfig['version']
-pkgConfigFile.close()
+version = 'Testing'
+buildTag = 'Testing'
 
-buildTagFile = open(buildTagFilename, 'r')
-buildTag = buildTagFile.read()
-buildTagFile.close()
+if path.isfile(packageFilename):
+    pkgConfigFile = open(packageFilename)
+    pkgConfig = json.load(pkgConfigFile)
+    version = pkgConfig['version']
+    pkgConfigFile.close()
 
-config = {
+if path.isfile(buildTagFilename):
+    buildTagFile = open(buildTagFilename, 'r')
+    buildTag = buildTagFile.read()
+    buildTagFile.close()
+
+config = {  # Default config
     'version': version,
     'buildTag': buildTag,
     'rootPath': rootPath,
-    #  'test': 'basic',
-    #  'testDict': {
-    #      'var': 'var content',
-    #  },
     'outputLog': True,
+    'outputColoredLog': True,
     'writeLog': True,
     'clearLogFile': True,
     'dateTagFormat': '%y%m%d-%H%M',
