@@ -20,7 +20,7 @@ SERVER=$1
 
 echo "Uploading to $SERVER..." \
 && sh "./util-remote-enable-ssh.sh" $SERVER \
-&& sh util-local-pack-build.sh \
+&& sh "./util-local-pack-build.sh" \
 && echo "Cleaning up remote folders..." \
 && $PLINK_CMD $SERVER "rm -Rf $REMOTE_TARGET_PATH/img $REMOTE_TARGET_PATH/src $REMOTE_TARGET_PATH/scans" \
 && echo "Cleaning up remote root files..." \

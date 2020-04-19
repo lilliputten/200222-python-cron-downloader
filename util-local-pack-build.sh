@@ -5,7 +5,7 @@
 # Config import
 . ./util-config.sh
 
-echo "Creating archive ($ARCNAME)..." \
+echo "Creating archive ($ARCDIR/$ARCNAME)..." \
 && mkdir -p "$ARCDIR" \
 && $ARC_CMD "$ARCDIR/$ARCNAME" --exclude "*.bak" --exclude "*.tmp" --exclude "*_" --exclude "*.sw?" src/* $ROOTFILES \
 && echo OK
