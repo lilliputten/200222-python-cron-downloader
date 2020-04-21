@@ -3,7 +3,7 @@
  @changed 2020.02.23, 00:51
 -->
 
-# flask-sample-site-1903
+# Project 200222-python-cron-downloader
 
 ## Project docs
 
@@ -28,14 +28,19 @@
 - `*.py,*.wsgi,*.js,*.jsx,*.ts,*.tsx,*.css,*.pcss,*.styl,*.md,*.json,*.yml,*.yaml,*.sh`
 
 ```shell
-pip install virtualenv virtualenvwrapper-win
+pip install setuptools virtualenv virtualenvwrapper-win
+
 # Machine global:
-mkvirtualenv flask-sample-site-1903
-workon flask-sample-site-1903
+mkvirtualenv PROJECT
+workon PROJECT
+
 # Project local:
+python -m virtualenv .venv
+python2 -m virtualenv -p C:\Python27\python.exe .venv
 virtualenv .venv
 .venv/bin/activate
 call .venv/Scripts/activate
+
 # Install all requirements:
 pip install -r requirements.txt
 pip install flask

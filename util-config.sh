@@ -1,6 +1,6 @@
 #!/bin/sh
 # @desc Remote utils configuration
-# @changed 2019.11.27, 16:43
+# @changed 2020.04.22, 00:06
 
 export PROJECT_NAME="cron-downloader"
 # export PROJECT_NAME=`basename "${PWD}"`
@@ -31,6 +31,9 @@ export ROOTFILES="
   README.md \
   build-tag.txt \
   package*.json \
+  requirements.txt \
+  admin-install-requirements.sh \
+  test.py \
 "
   # index.js \
 

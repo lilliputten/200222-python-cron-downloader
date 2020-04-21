@@ -1,3 +1,4 @@
+#!python2
 # -*- coding:utf-8 -*-
 # @module test
 # @since 2020.02.23, 02:18
