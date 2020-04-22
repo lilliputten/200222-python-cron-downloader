@@ -5,11 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Test",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceRoot}/test.py",
+            "console": "integratedTerminal",
+        },
+        {
+            "name": "htmlLoader",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceRoot}/src/htmlLoader.py",
+            "console": "integratedTerminal",
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
-        }
+            "console": "integratedTerminal",
+        },
     ]
 }

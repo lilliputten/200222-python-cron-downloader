@@ -4,21 +4,26 @@
 # @since 2020.02.23, 02:18
 # @changed 2020.02.23, 03:04
 
-from src import config, DEBUG
-
-import urllib2
-from os import path
-import re
+from src import fetcher, config, DEBUG
 
 DEBUG('Started ' + __file__ + ' / ' + config['buildTag'])
 DEBUG('Using config:', config)
 
-response = urllib2.urlopen('https://echo.msk.ru/programs/radiodetaly/')
-html = response.read()
-matches = re.findall(r'\w+\.mp3', html)
+testUrl = 'https://zzzecho.msk.ru/programs/radiodetaly/'
 
-with open(path.join(config['rootPath'], 'log-request.txt'), 'w') as file:
-    file.write(html)
+# Test fetcher...
+matches = fetcher.fetchMatchesFromUrl(testUrl)
+
+#  # Raw download test...
+#  import urllib2
+#  from os import path
+#  import re
+#  response = urllib2.urlopen(testUrl)
+#  html = response.read()
+#  matches = re.findall(r'\w+\.mp3', html)
+#  # DEBUG: Request logging
+#  with open(path.join(config['rootPath'], 'log-request.txt'), 'w') as file:
+#      file.write(html)
 
 DEBUG('Test', {
     'matches': matches,

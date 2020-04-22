@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# @module parser
+# @module htmlParser
 # @since 2020.02.23, 14:25
 # @changed 2020.02.23, 18:13
 
@@ -11,7 +11,7 @@ import re
 
 def fetchMatchesFromHtml(html):
     matches = re.findall(r'href="([^"]*\.mp3)"', html)
-    #  DEBUG('parser:fetchMatchesFromHtml: found matches', {
+    #  DEBUG('htmlParser:fetchMatchesFromHtml: found matches', {
     #      'matches': matches,
     #  })
     return matches
@@ -29,6 +29,6 @@ if __name__ == '__main__':  # Test
     with open(testFilePath) as file:
         html = file.read()
         matches = fetchMatchesFromHtml(html)
-        DEBUG('parser:test:fetchMatchesFromHtml: found matches', {
+        DEBUG('htmlParser:test:fetchMatchesFromHtml: found matches', {
             'matches': matches,
         })

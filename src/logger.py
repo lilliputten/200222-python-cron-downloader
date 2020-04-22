@@ -1,26 +1,24 @@
 # -*- coding:utf-8 -*-
 # @module logger
 # @since 2020.02.23, 02:18
-# @changed 2020.02.23, 03:32
+# @changed 2020.04.22, 01:38
 
 
 import os
 from os import path
 from config import config
 import datetime
-#  import pprint
 import yaml
 from termcolor import colored
-
-
-def writeToLogFile(title, data):
-    print 'Trying to write to file...'
+import utils  # noqa
 
 
 def createHeader():
     detailedDateFormat = config['detailedDateFormat']
     now = datetime.datetime.now()
     dateTag = now.strftime(detailedDateFormat)
+    #  if dateTag.endswith('000'):  # Remove extra finsishing '000'
+    dateTag = dateTag[:-3]  # Convert microseconds (.NNNNNN) to milliseconds (.NNN)
     header = '[' + dateTag + ']'
     return header
 
@@ -28,10 +26,14 @@ def createHeader():
 def createLogData(title, data=None):
     logData = ''
     if data is not None:
-        logData = yaml.safe_dump(data)
+        #  logData = yaml.dump(data, default_flow_style=False)
+        logData = yaml.dump(data)
         #  logData += pprint.pformat(data)
         if not logData.endswith('\n'):
             logData += '\n'
+        #  if 'test' in data:
+        #      print 'Test data:', data
+        #      print 'Test yaml:', logData
     return logData
 
 
@@ -67,3 +69,6 @@ def DEBUG(title, data=None):
 __all__ = [  # Exporting objects...
     'DEBUG',
 ]
+
+if __name__ == '__main__':  # Test
+    DEBUG('Test')

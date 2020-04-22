@@ -1,3 +1,6 @@
+# Dev-time files
+config.local.yml
+
 # Unused, temp etc
 .DS_Store
 .idea

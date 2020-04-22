@@ -1,3 +1,4 @@
+#!python2
 # -*- coding:utf-8 -*-
 # @module fetcher
 # @since 2020.02.23, 18:51
@@ -5,13 +6,13 @@
 
 
 from logger import DEBUG
-import loader
-import parser
+import htmlLoader
+import htmlParser
 
 
 def fetchMatchesFromUrl(url):
-    html = loader.loadHtml(url)
-    matches = parser.fetchMatchesFromHtml(html)
+    html = htmlLoader.loadHtml(url)
+    matches = htmlParser.fetchMatchesFromHtml(html)
     return matches
 
 

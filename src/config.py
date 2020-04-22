@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# @module server
+# @module config
 # @since 2020.02.23, 02:18
 # @changed 2020.02.23, 01:58
 # See https://docs.python.org/3/library/configparser.html -- ???
@@ -11,6 +11,7 @@ import yaml
 
 rootPath = os.getcwd()
 yamlConfigFilename = path.join(rootPath, 'config.yml')
+yamlLocalConfigFilename = path.join(rootPath, 'config.local.yml')
 
 buildTagFilename = path.join(rootPath, 'build-tag.txt')
 packageFilename = path.join(rootPath, 'package.json')
@@ -37,17 +38,25 @@ config = {  # Default config
     'outputLog': True,
     'outputColoredLog': True,
     'writeLog': True,
-    'clearLogFile': True,
+    'clearLogFile': False,
     'dateTagFormat': '%y%m%d-%H%M',
     'shortDateFormat': '%Y.%m.%d-%H:%M',
     'detailedDateFormat': '%Y.%m.%d-%H:%M:%S.%f',
     'collectorFileName': 'collector.txt',  # Add to gitignore
 }
 
-# Extend config from file (config.yml) in project root
-if path.isfile(yamlConfigFilename):
-    with open(yamlConfigFilename) as file:
-        #  print 'Extending config with', yamlConfigFilename
-        yamlConfigData = yaml.load(file, Loader=yaml.FullLoader)
-        #  print 'yamlConfigData:', yamlConfigData
-        config.update(yamlConfigData)
+
+def updateConfigWithYaml(config, file):
+    """
+    Extend config from file
+    """
+    if path.isfile(file):
+        with open(file) as file:
+            #  print 'Extending config with', file
+            yamlConfigData = yaml.load(file, Loader=yaml.FullLoader)
+            #  print 'yamlConfigData:', yamlConfigData
+            config.update(yamlConfigData)
+
+
+updateConfigWithYaml(config, yamlConfigFilename)
+updateConfigWithYaml(config, yamlLocalConfigFilename)
