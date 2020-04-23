@@ -9,7 +9,7 @@
 from config import config
 from logger import DEBUG
 
-from main import foo  # noqa
+#  from main import foo  # noqa
 
 __all__ = [
     'config',

@@ -1,0 +1,12 @@
+checkPeriod: 1d
+checksCount: 0
+downloadsCount: 0
+errorsCount: 0
+checkTime: 2020.04.22-05:24:17.326
+error: NONE
+errorTime: 2020.04.22-05:24:17.326
+lookupReg:
+  - '<a href="(https://cdn.echo.msk.ru/snd/[^"]*.mp3"'
+lookupTest:
+  - 'test-sources-200423/echo-radiodetaly.html'
+url: 'https://echo.msk.ru/programs/radiodetaly/'

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 # @module logger
 # @since 2020.02.23, 02:18
-# @changed 2020.04.22, 01:38
+# @changed 2020.04.23, 03:48
 
 
 import os
@@ -26,9 +26,8 @@ def createHeader():
 def createLogData(title, data=None):
     logData = ''
     if data is not None:
-        #  logData = yaml.dump(data, default_flow_style=False)
-        logData = yaml.dump(data)
-        #  logData += pprint.pformat(data)
+        logData = yaml.dump(data, Dumper=utils.CustomYamlDumper, default_flow_style=False, indent=2)
+        logData = '  ' + logData.replace('\n', '\n  ').rstrip()  # Indent data
         if not logData.endswith('\n'):
             logData += '\n'
         #  if 'test' in data:

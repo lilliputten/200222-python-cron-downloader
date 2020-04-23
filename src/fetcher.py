@@ -12,8 +12,9 @@ import htmlParser
 
 def fetchMatchesFromUrl(url):
     html = htmlLoader.loadHtml(url)
-    matches = htmlParser.fetchMatchesFromHtml(html)
-    return matches
+    if html:
+        matches = htmlParser.fetchMatchesFromHtml(html)
+        return matches
 
 
 __all__ = [  # Exporting objects...

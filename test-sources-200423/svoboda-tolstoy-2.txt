@@ -1,0 +1,4 @@
+url https://www.svoboda.org/a/30530728.html
+lookup: |
+  <a href="https://audio.rferl.org/RU/2020/04/19/20200419-090500-RU081-program.mp3?download=1" title="32 kbps | MP3" class="handler"
+  <a href="https://audio.rferl.org/RU/2020/04/19/20200419-090500-RU081-program_hq.mp3?download=1" title="128 kbps | MP3" class="handler"

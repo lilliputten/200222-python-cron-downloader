@@ -1,15 +1,16 @@
 # -*- coding:utf-8 -*-
 # @module config
 # @since 2020.02.23, 02:18
-# @changed 2020.02.23, 01:58
-# See https://docs.python.org/3/library/configparser.html -- ???
+# @changed 2020.04.23, 03:48
+# See:
+#  - https://docs.python.org/3/library/configparser.html -- ???
+#  - https://stackoverflow.com/questions/9590382/forcing-python-json-module-to-work-with-ascii
 
-import os
-from os import path
+from os import path, getcwd
 import json
 import yaml
 
-rootPath = os.getcwd()
+rootPath = getcwd()
 yamlConfigFilename = path.join(rootPath, 'config.yml')
 yamlLocalConfigFilename = path.join(rootPath, 'config.local.yml')
 
@@ -23,7 +24,7 @@ buildTag = 'Testing'
 if path.isfile(packageFilename):
     pkgConfigFile = open(packageFilename)
     pkgConfig = json.load(pkgConfigFile)
-    version = pkgConfig['version']
+    version = pkgConfig['version'].encode('ascii')
     pkgConfigFile.close()
 
 if path.isfile(buildTagFilename):
@@ -35,6 +36,7 @@ config = {  # Default config
     'version': version,
     'buildTag': buildTag,
     'rootPath': rootPath,
+    'channelsDir': 'channels',
     'outputLog': True,
     'outputColoredLog': True,
     'writeLog': True,
@@ -42,7 +44,15 @@ config = {  # Default config
     'dateTagFormat': '%y%m%d-%H%M',
     'shortDateFormat': '%Y.%m.%d-%H:%M',
     'detailedDateFormat': '%Y.%m.%d-%H:%M:%S.%f',
-    'collectorFileName': 'collector.txt',  # Add to gitignore
+    'testList': [
+        1,
+        2,
+        [
+            3,
+            4,
+        ],
+    ],
+    #  'collectorFileName': 'collector.txt',  # Add to gitignore
 }
 
 

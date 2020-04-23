@@ -1,0 +1,14 @@
+checkPeriod: 2h
+checkTime: 2020.04.22-05:24:17.326
+checksCount: 0
+downloadsCount: 0
+error: NONE
+errorTime: 2020.04.22-05:24:17.326
+errorsCount: 0
+lookupReg:
+  - '<a href="(/a/[^"]*.html)"'
+  - '<a href="(https://audio.rferl.org/[^"]*.mp3)?download'
+lookupTest:
+  - 'test-sources-200423/svoboda-tolstoy-1.html'
+  - 'test-sources-200423/svoboda-tolstoy-2.html'
+url: 'https://www.svoboda.org/z/211/episodes'
